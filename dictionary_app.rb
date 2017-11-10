@@ -14,6 +14,8 @@ top_example = response.body
 response = Unirest.get("http://api.wordnik.com:80/v4/word.json/#{input_word}/pronunciations?useCanonical=false&limit=50&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
 pronunciations = response.body
 
+system "say #{input_word}"
+
 puts "DEFINITIONS"
 index = 0
 definitions.length.times do
@@ -25,6 +27,8 @@ end
 puts "TOP EXAMPLE"
 puts top_example["text"]
 puts
+
+system "say #{top_example["text"]}"
 
 puts "PRONUNCIATIONS"
 index = 0
